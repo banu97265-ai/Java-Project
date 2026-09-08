@@ -1,0 +1,25 @@
+# NetBeans generated files
+/build/
+/dist/
+/nbbuild/
+
+# NetBeans private/user-specific files
+/nbproject/private/
+
+# Compiled Java files
+*.class
+
+# IDE files
+.nb-gradle/
+.idea/
+.vscode/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Local student data
+/data/
