@@ -59,6 +59,8 @@ private StudentService studentService;
         btnSearch = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtResult = new javax.swing.JTextArea();
+        btnClear = new javax.swing.JButton();
+        btnClose = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,18 +77,34 @@ private StudentService studentService;
         btnSearch.setText("Search");
         btnSearch.addActionListener(this::btnSearchActionPerformed);
 
+        txtResult.setEditable(false);
         txtResult.setColumns(20);
+        txtResult.setFont(new java.awt.Font("Monospaced", 0, 13)); // NOI18N
+        txtResult.setLineWrap(true);
         txtResult.setRows(5);
+        txtResult.setWrapStyleWord(true);
         jScrollPane1.setViewportView(txtResult);
+
+        btnClear.setText("Clear");
+        btnClear.addActionListener(this::btnClearActionPerformed);
+
+        btnClose.setText("Close");
+        btnClose.addActionListener(this::btnCloseActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(170, 170, 170)
+                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -96,21 +114,21 @@ private StudentService studentService;
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
                                 .addComponent(txtRegNo, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(28, 28, 28))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(63, 63, 63))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnSearch)
-                        .addGap(173, 173, 173))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(170, 170, 170)
-                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(75, 75, 75)
+                                        .addComponent(btnSearch)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnClear)))
+                                .addGap(12, 12, 12)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(btnClose))
+                                    .addComponent(txtDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,10 +147,13 @@ private StudentService studentService;
                     .addComponent(txtDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSearch)
-                .addGap(12, 12, 12)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                .addGap(24, 24, 24))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSearch)
+                    .addComponent(btnClear)
+                    .addComponent(btnClose))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                .addGap(12, 12, 12))
         );
 
         pack();
@@ -161,21 +182,28 @@ try {
             department
     );
 
-    txtResult.setText(
-            "STUDENT DETAILS\n"
-            + "------------------------------\n"
-            + "Register Number: " + student.getRegisterNumber() + "\n"
-            + "Name: " + student.getName() + "\n"
-            + "Department: " + student.getDepartment() + "\n"
-            + "Year: " + student.getYear() + "\n"
-            + "CGPA: " + student.getCgpa() + "\n"
-            + "Programming Score: " + student.getProgrammingScore() + "\n"
-            + "CGPA Performance: " + student.getCgpaPerformance() + "\n"
-            + "Aptitude Performance: " + student.getAptitudePerformance() + "\n"
-            + "Placement Eligibility: " + student.getPlacementEligibility() + "\n"
-            + "Placement Readiness: " + student.getPlacementReadiness() + "\n"
-            + "Primary Focus Area: " + student.getPrimaryFocusArea() + "\n"
-            + "Suggestion: " + student.getPersonalizedSuggestion()
+            txtResult.setText(
+        "========== STUDENT PLACEMENT REPORT ==========\n\n"
+        + "PERSONAL DETAILS\n"
+        + "----------------------------------------------\n"
+        + "Register Number     : " + student.getRegisterNumber() + "\n"
+        + "Name                : " + student.getName() + "\n"
+        + "Department          : " + student.getDepartment() + "\n"
+        + "Year                : " + student.getYear() + "\n"
+        + "CGPA                : " + student.getCgpa() + "\n\n"
+        + "PERFORMANCE ANALYSIS\n"
+        + "----------------------------------------------\n"
+        + "Programming Score   : " + student.getProgrammingScore() + "\n"
+        + "CGPA Performance    : " + student.getCgpaPerformance() + "\n"
+        + "Aptitude Performance: " + student.getAptitudePerformance() + "\n\n"
+        + "PLACEMENT STATUS\n"
+        + "----------------------------------------------\n"
+        + "Placement Eligibility: " + student.getPlacementEligibility() + "\n"
+        + "Placement Readiness  : " + student.getPlacementReadiness() + "\n\n"
+        + "DEVELOPMENT GUIDANCE\n"
+        + "----------------------------------------------\n"
+        + "Primary Focus Area   : " + student.getPrimaryFocusArea() + "\n"
+        + "Suggestion           : " + student.getPersonalizedSuggestion()
     );
 
 } catch (exception.StudentNotFoundException e) {
@@ -194,6 +222,19 @@ try {
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        txtName.setText("");
+txtRegNo.setText("");
+txtDepartment.setText("");
+txtResult.setText("");
+
+txtName.requestFocus();// TODO add your handling code here:
+    }//GEN-LAST:event_btnClearActionPerformed
+
+    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
+        dispose();// TODO add your handling code here:
+    }//GEN-LAST:event_btnCloseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,6 +262,8 @@ try {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnClose;
     private javax.swing.JButton btnSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

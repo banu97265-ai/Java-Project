@@ -52,6 +52,7 @@ public class MainFrame extends javax.swing.JFrame {
         btnSearchStudent.addActionListener(this::btnSearchStudentActionPerformed);
 
         btnUpdateStudent.setText("Update Student ");
+        btnUpdateStudent.addActionListener(this::btnUpdateStudentActionPerformed);
 
         btnDeleteStudent.setText("Delete Student");
 
@@ -125,6 +126,11 @@ viewFrame.setVisible(true);// TODO add your handling code here:
         SearchStudentFrame searchFrame = new SearchStudentFrame();
     searchFrame.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_btnSearchStudentActionPerformed
+
+    private void btnUpdateStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateStudentActionPerformed
+        UpdateStudentFrame updateFrame = new UpdateStudentFrame();
+updateFrame.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_btnUpdateStudentActionPerformed
 
     /**
      * @param args the command line arguments

@@ -57,26 +57,19 @@
                           <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblPersonalizedSuggestion" min="-2" pref="43" max="-2" attributes="0"/>
-                                  <Component id="lblPrimaryFocusArea" min="-2" pref="43" max="-2" attributes="0"/>
-                                  <Component id="lblPlacementReadiness" min="-2" pref="43" max="-2" attributes="0"/>
-                                  <Component id="lblPlacementEligibility" min="-2" pref="43" max="-2" attributes="0"/>
-                                  <Component id="lblAptitudePerformance" min="-2" pref="43" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblCgpaPerformance" min="-2" pref="37" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel10" min="-2" pref="43" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
+                      <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
-                              <Component id="lblProgrammingScore" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCgpaPerformance" pref="176" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel10" min="-2" pref="43" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="lblAptitudePerformance" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblProgrammingScore" max="32767" attributes="0"/>
+                          <Component id="lblPlacementEligibility" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblPlacementReadiness" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblPrimaryFocusArea" alignment="0" max="32767" attributes="0"/>
+                          <Component id="lblPersonalizedSuggestion" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -88,7 +81,7 @@
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="7" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -123,7 +116,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblPlacementReadiness" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblPlacementReadiness" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -223,6 +216,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="close "/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel11">
       <Properties>
