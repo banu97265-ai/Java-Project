@@ -34,7 +34,6 @@ public class MainFrame extends javax.swing.JFrame {
         btnSearchStudent = new javax.swing.JButton();
         btnUpdateStudent = new javax.swing.JButton();
         btnDeleteStudent = new javax.swing.JButton();
-        btnResetDepartment = new javax.swing.JButton();
         btnSaveExit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -55,10 +54,10 @@ public class MainFrame extends javax.swing.JFrame {
         btnUpdateStudent.addActionListener(this::btnUpdateStudentActionPerformed);
 
         btnDeleteStudent.setText("Delete Student");
-
-        btnResetDepartment.setText("Reset Department");
+        btnDeleteStudent.addActionListener(this::btnDeleteStudentActionPerformed);
 
         btnSaveExit.setText("Save & Exit");
+        btnSaveExit.addActionListener(this::btnSaveExitActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,9 +74,8 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(130, 130, 130)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnResetDepartment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnDeleteStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnUpdateStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnUpdateStudent, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
                             .addComponent(btnSearchStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnSaveExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
@@ -100,11 +98,9 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(btnUpdateStudent)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnDeleteStudent)
-                .addGap(12, 12, 12)
-                .addComponent(btnResetDepartment)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSaveExit)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
@@ -131,6 +127,21 @@ viewFrame.setVisible(true);// TODO add your handling code here:
         UpdateStudentFrame updateFrame = new UpdateStudentFrame();
 updateFrame.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_btnUpdateStudentActionPerformed
+
+    private void btnDeleteStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteStudentActionPerformed
+new DeleteStudentFrame().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteStudentActionPerformed
+
+    private void btnSaveExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveExitActionPerformed
+javax.swing.JOptionPane.showMessageDialog(
+        this,
+        "Your data has been saved successfully.",
+        "Save Successful",
+        javax.swing.JOptionPane.INFORMATION_MESSAGE
+);
+
+System.exit(0);
+    }//GEN-LAST:event_btnSaveExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,7 +171,6 @@ updateFrame.setVisible(true);// TODO add your handling code here:
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddStudent;
     private javax.swing.JButton btnDeleteStudent;
-    private javax.swing.JButton btnResetDepartment;
     private javax.swing.JButton btnSaveExit;
     private javax.swing.JButton btnSearchStudent;
     private javax.swing.JButton btnUpdateStudent;
